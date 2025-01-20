@@ -1,0 +1,1 @@
+/home/etienne/Bureau/RustForSol/Rust_for_Solana/hello_solana/src/program/target/sbf-solana-solana/release/libprogram.rlib: /home/etienne/Bureau/RustForSol/Rust_for_Solana/hello_solana/src/program/src/lib.rs
