@@ -12,3 +12,4 @@ solana-sdk = "1.14.0"
 
 [lib]
 crate-type = ["cdylib", "lib"]
+path = "src/program/src/lib.rs"
