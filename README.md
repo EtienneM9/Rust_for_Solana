@@ -1,6 +1,11 @@
 # Rust_for_Solana
 First project with Rust for Solana and blockchain application
 
+[English](#english) | [Français](#français)
+
+
+# Eenglish
+
 # Solana CLI
 
 ## Install & Setup:
@@ -101,3 +106,127 @@ deploy on the devnet
 ```shell
 solana program deploy dist/program/program.so
 ```
+
+To get informations on the program curently on chain with its id
+```shell
+solana logs | grep "ID-Prog invoke" -A 3
+```
+
+To lunch our ts code and interact with the onchain program
+```shell
+npm run start
+```
+
+# Français
+
+# Solana CLI
+
+## Installation et configuration :
+
+Installez la suite d’outils Solana en suivant [ces instructions](https://docs.solana.com/cli/install-solana-cli-tools).   
+
+Une fois le CLI installé, nous devons créer un compte. Pour cela, nous générons une nouvelle **paire de clés publique/privée**.
+```shell
+solana-keygen new
+```
+
+Après cela, nous devons configurer notre client Solana CLI pour utiliser notre nouveau compte.
+```shell
+solana config set --keypair /root/.config/solana/id.json
+```
+
+Ensuite, nous devons lier notre client à un réseau Solana.
+```shell
+solana config set --url <network_url>
+```
+```shell
+(dev net -- développement)        https://api.devnet.solana.com
+(test net -- mise en scène)        https://api.testnet.solana.com
+(main net -- production)        https://api.mainnet-beta.solana.com
+```
+
+## Exploration :
+
+**Vous pouvez voir toutes les commandes supportées par le CLI Solana en entrant simplement :**
+```shell
+solana
+```
+
+Voici quelques exemples :   
+
+Pour déployer des applications sur Solana, vous devez payer un `loyer`. Cela coûte une petite quantité de `lamports` (SOL). Sur le réseau `dev`, vous pouvez demander un `airdrop` de "monnaie de test" pour déployer sur le réseau de développement :
+```shell
+solana airdrop 1
+```
+
+Vérifiez le solde de votre compte :
+```shell
+solana balance
+```
+
+## Le Dockerfile :
+
+Un Dockerfile est fourni pour créer l'image suivante : [jpcaulfi/solana-alpine](https://hub.docker.com/repository/docker/jpcaulfi/solana-alpine).   
+
+Vous pouvez utiliser cette image pour créer un conteneur Docker permettant de réaliser des opérations Solana, comme le déploiement ou même l’hébergement/exécution d’une application.   
+
+Cette image contient :
+```shell
+node    rust    solana
+```
+
+Vous pouvez exécuter ces commandes dans le conteneur ou écrire un Dockerfile :
+```shell
+solana-keygen new --no-bip39-passphrase
+solana config set --keypair /root/.config/solana/id.json
+solana config set --url http://api.devnet.solana.com
+solana airdrop 2
+```
+
+# Bonjour Solana
+
+## Premier programme (ou contrat intelligent) sur la blockchain
+
+Construisez le programme en utilisant Cargo : (bpf est l'encodage utilisé par Solana pour ses programmes)
+## La version 4 de Cargo.lock ne fonctionne pas, alors utilisez la version 3
+```shell
+cargo build-bpf
+```
+
+Ensuite, nous pouvons le déployer sur le devnet en utilisant les instructions du SDK Solana :
+```shell
+solana deploy target/deploy/program.so
+```
+
+Ensuite, nous pouvons obtenir des informations sur le programme que nous venons de déployer avec :
+```shell
+solana program show "IDProg"
+```
+
+## Avec npm :
+
+Si nécessaire, ajoutez le chemin vers Cargo.toml :
+```rust
+path = "src/program/src/lib.rs"
+```
+
+Construisez le programme (main.ts) :
+```shell
+npm run build:program
+```
+
+Déployez sur le devnet :
+```shell
+solana program deploy dist/program/program.so
+```
+
+Pour obtenir des informations sur le programme actuellement sur la blockchain avec son ID :
+```shell
+solana logs | grep "ID-Prog invoke" -A 3
+```
+
+Pour exécuter notre code TS et interagir avec le programme sur la blockchain :
+```shell
+npm run start
+```
+
