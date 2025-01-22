@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "target": "ES6",                     // Version de JavaScript cible (ECMAScript 6).
+      "module": "commonjs",               // Module système utilisé par Node.js.
+      "strict": true,                     // Activer toutes les vérifications strictes.
+      "esModuleInterop": true,            // Permet l'importation correcte des modules ES.
+      "skipLibCheck": true,               // Ignore les vérifications des fichiers .d.ts.
+      "forceConsistentCasingInFileNames": true, // Respecter la casse des noms de fichiers.
+      "outDir": "./dist",                 // Dossier de sortie pour les fichiers compilés.
+      "rootDir": "./src",                 // Répertoire racine contenant les fichiers source.
+      "resolveJsonModule": true,          // Permet d'importer des fichiers JSON.
+      "moduleResolution": "node",         // Résolution des modules compatible Node.js.
+      "sourceMap": true,                  // Générer des fichiers source map pour le débogage.
+      "noImplicitAny": true,              // Empêche l'utilisation implicite de `any`.
+      "lib": ["ES6", "DOM"],              // Ajoute les types de base ES6 et DOM.
+      "typeRoots": ["./node_modules/@types"] // Répertoire contenant les définitions de types.
+    },
+    "include": [
+      "src/program/src/client/**/*"                 // Inclut tous les fichiers `.ts` dans le répertoire `src`.
+    ],
+    "exclude": [
+      "node_modules",                     // Exclut les dépendances de Node.js.
+      "dist"                              // Exclut le dossier de sortie.
+    ]
+  }
+  
