@@ -4,7 +4,7 @@ First project with Rust for Solana and blockchain application
 [English](#english) | [Français](#français)
 
 
-# Eenglish
+# English
 
 # Solana CLI
 
