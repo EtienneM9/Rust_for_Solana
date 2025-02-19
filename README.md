@@ -90,7 +90,7 @@ Then, we can get infos on the prgram we just deployed with
 solana program show "IDProg"
 ```
 
-## Avec npm:
+## With npm:
 
 If needed, add the path to the Cargo.toml:
 ```rust
